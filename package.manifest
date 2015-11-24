@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+    <Metadata>
+        <UUID>c7722615-4583-4069-be91-7971b1d7b3bf</UUID>
+        <Name>yum_upgrade_centos6</Name>
+        <Description>Emails a report after applying all available updates for CentOS 6</Description>
+    </Metadata>
+    <Parameters>
+        <Parameter Name="T3.Server.IPAddress" Hint="" Type="String" Variable="T3.Server.IPAddress" Prompt="None" Global="false" Default="" Required="true"/>
+        <Parameter Name="EMAILREPORTTO" Hint="Email address to send to" Type="String" Variable="EMAILREPORTTO" Prompt="Build" Global="false" Default="Ernest.Wilson@ctl.io" Required="true"/>
+    </Parameters>
+    <Execution>
+        <Mode>Ssh</Mode>
+        <Command>install.sh '${T3.Server.IPAddress}' '${EMAILREPORTTO}'</Command>
+        <Persistent>false</Persistent>
+        <RebootOnSuccess>true</RebootOnSuccess>
+    </Execution>
+</Manifest>
